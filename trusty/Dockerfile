@@ -13,4 +13,4 @@ RUN checkinstall
 RUN ldconfig /usr/local/lib
 RUN find *.deb -type f
 
-CMD ["cp" ,"*.deb" "/out"]
+CMD cp *.deb /out
