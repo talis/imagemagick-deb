@@ -1,9 +1,9 @@
 FROM ubuntu:trusty
 
 RUN apt-get update && apt-get upgrade && apt-get install -y build-essential checkinstall wget && apt-get build-dep imagemagick -y
-RUN wget https://www.imagemagick.org/download/releases/ImageMagick-6.9.7-10.tar.gz
+RUN wget https://www.imagemagick.org/download/releases/ImageMagick-6.9.7-10.tar.xz
 RUN mkdir /out
-RUN tar -zxvf ImageMagick-6.9.7-10.tar.gz
+RUN tar -xvJf ImageMagick-6.9.7-10.tar.xz
 RUN ln -s $(find ImageMagick-* -type d | head -n 1) /imagemagick
 WORKDIR /imagemagick
 RUN ./configure
