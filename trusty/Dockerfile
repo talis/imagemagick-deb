@@ -14,4 +14,4 @@ RUN mkdir /tmp/out
 RUN make install DESTDIR=/tmp/out
 RUN ls -al /tmp/out/usr/local
 
-CMD fpm -s dir -t deb -n imagemagick -v 6.9.7-10 -C /tmp/out -p imagemagick_VERSION_ARCH.deb usr/bin usr/lib && cp *.deb /out
+CMD fpm -s dir -t deb -n imagemagick -v 6.9.7-10 -C /tmp/out -p imagemagick_VERSION_ARCH.deb usr/local && cp *.deb /out
