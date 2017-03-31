@@ -11,3 +11,6 @@ stages:
           cd trusty
           docker-compose build
           docker-compose run imagemagick
+      - type: shell
+        name: Upload package
+        command: aws s3 cp trusty/out/imagemagick_6.9.7-10-trusty-talis_amd64.deb s3://aspire-operations/binaries/aptly/imagemagick_6.9.7-10-trusty-talis_amd64.deb
