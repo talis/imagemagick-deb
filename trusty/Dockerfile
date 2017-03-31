@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 
-RUN apt-get update && apt-get upgrade && apt-get install -y build-essential checkinstall wget ruby1.9 && apt-get build-dep imagemagick -y
+RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential checkinstall wget ruby1.9 && apt-get build-dep imagemagick -y
 RUN wget https://www.imagemagick.org/download/releases/ImageMagick-6.9.7-10.tar.xz
 RUN gem install fpm
 RUN mkdir /out
