@@ -8,7 +8,7 @@ stages:
         name: Prep /development
         command: |
           sudo mkdir /development
-          sudo chown 777 /development
+          sudo chmod 777 /development
           ln -s /home/circleci/imagemagick-deb /development/imagemagick-deb
       - type: checkout
       - type: shell
