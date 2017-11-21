@@ -1,0 +1,23 @@
+version: 2
+executorType: machine
+stages:
+  build:
+    workDir: ~/imagemagick-deb
+    steps:
+      - type: shell
+        name: Prep /development
+        command: |
+          sudo mkdir /development
+          sudo chmod 777 /development
+          ln -s /home/circleci/imagemagick-deb /development/imagemagick-deb
+      - type: checkout
+      - type: shell
+        name: Build image
+        command: |
+          cd trusty
+          docker-compose build
+          docker-compose run imagemagick
+      - type: shell
+        name: Upload package
+        command: aws s3 cp ~/imagemagick-deb/trusty/out/imagemagick_6.9.7-10-trusty-talis_amd64.deb $REPO/imagemagick_6.9.7-10-trusty-talis_amd64.deb
+
