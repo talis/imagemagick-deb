@@ -1,0 +1,8 @@
+version: "2"
+services:
+  imagemagick:
+    build: .
+    volumes:
+      - /development/imagemagick-deb/xenial/out:/out
+      
+    
