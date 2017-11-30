@@ -3,6 +3,6 @@ services:
   imagemagick:
     build: .
     volumes:
-      - /development/imagemagick-deb/xenial/out:/out
+      - ./out:/out
       
     
